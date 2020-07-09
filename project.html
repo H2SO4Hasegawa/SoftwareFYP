@@ -1,0 +1,110 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+
+<crowd-form>
+
+
+
+
+
+
+    <classification-target answer-format="flatten-objects">
+        <iframe style="width: 100%; height: 600px;" src="${video_url}"></iframe>
+    </classification-target>
+
+    <short-instructions>
+        <p>Read the task carefully and inspect the video.</p>
+        <p>Choose the appropriate timestamp/frame as shown in the full instructions and submit in the box below.
+        </p>
+        <p>After selecting the appropriate timestamp/frame, please fill in question 2-7 regarding the timestamp/frame
+            chosen.
+        </p>
+        <p>Please read the Full instructions on how to choose a timestamp/frame.</p>
+    </short-instructions>
+
+    <full-instructions header="Timestamp/Frame choosing instructions">
+        <p>Please look for a frame in the video embedded above that allows lines to be annotated over defined
+            features
+            as shown below</p>
+        <h4>Interior shot</h4>
+        <img
+            src="https://github.com/H2SO4Hasegawa/SoftwareFYP/blob/master/Example%20of%20annotated%20movie%20scene.png?raw=true">
+        <h4>Exterior shot</h4>
+        <img
+            src="https://github.com/H2SO4Hasegawa/SoftwareFYP/blob/master/Annotated%20Black%20Hawk%20Down%20Scene.png?raw=true">
+    </full-instructions>
+    <div>
+        <p>1. Please enter the timestamp below.</p>
+        <crowd-input name="timestamp" label="Please enter your timestamp here eg: 3:14"></crowd-input>
+
+    </div>
+    <div>
+        <p>2. On a scale of Medival (0) to Futuristic (3000), when would you place this scene in?</p>
+        <crowd-slider name="whatAge" min="0" max="3000" step="100" pin="true" required></crowd-slider>
+    </div>
+
+    <div>
+        <p>3. On a scale of Rural (1) to Urban (10), where would you place this scene in?</p>
+        <crowd-slider name="howDeveloped" min="1" max="10" step="1" pin="true" required></crowd-slider>
+    </div>
+
+    <div>
+        <p>4. On a scale of Bright (1) to Dark (10), how would you describe this scene?</p>
+        <crowd-slider name="howBright" min="1" max="10" step="1" pin="true" required></crowd-slider>
+    </div>
+
+    <div>
+        <p>5. What is the setting of the frame chosen?</p>
+        <crowd-radio-group id="presetlocation">
+            <crowd-radio-button name="Carpark" value="carpark">Carpark</crowd-radio-button>
+            <crowd-radio-button name="Office" value="office">Office</crowd-radio-button>
+            <crowd-radio-button name="Police Station/Department" value="police station/department">Police
+                Station/Department</crowd-radio-button>
+            <crowd-radio-button name="Regular Household/Room" value="regular sousehold/room">Regular Household/Room
+            </crowd-radio-button>
+            <crowd-radio-button name="Subway Station" value="subway station">Subway Station</crowd-radio-button>
+            <crowd-radio-button name="Alleys" value="alleys">Alleys</crowd-radio-button>
+            <crowd-radio-button name="Bar" value="bar">Bar</crowd-radio-button>
+            <crowd-radio-button name="Supermarket" value="supermarket">Supermarket</crowd-radio-button>
+            <crowd-radio-button name="Shopping mall" value="shopping mall">Shopping mall</crowd-radio-button>
+            <crowd-radio-button name="School" value="school">School</crowd-radio-button>
+            <crowd-radio-button name="In front of a building" value="in front of a building">In front of a building
+            </crowd-radio-button>
+            <crowd-radio-button name="Hotel" value="hotel">Hotel</crowd-radio-button>
+            <crowd-radio-button name="Church/Cathedral" value="church/cathedral">Church/Cathedral</crowd-radio-button>
+            <crowd-radio-button name="Petrol Station" value="petrol station">Petrol Station</crowd-radio-button>
+            <crowd-radio-button name="Shops and Stores (Bookshop, Convenience store)" value="shops and stores">Shops and
+                Stores (Bookshop, Convenience store)</crowd-radio-button>
+            <crowd-radio-button name="Museum" value="museum">Museum</crowd-radio-button>
+            <crowd-radio-button name="None" value="none" checked="false" id="none">None of the above
+            </crowd-radio-button>
+        </crowd-radio-group>
+    </div>
+
+    <div>
+        <p>6. If the setting is not listed above, please put in a setting below</p>
+        <crowd-input id="location" name="location" label="Please enter a location here: eg: Airport" disabled="true">
+        </crowd-input>
+    </div>
+
+    <div>
+        <p>7. Which country do you think this scene is in</p>
+        <crowd-input id="location" name="location" label="Please enter a country here: eg: USA">
+        </crowd-input>
+    </div>
+
+
+
+
+
+
+
+
+</crowd-form>
+<script>
+    var a = Document.getElementById("none");
+    var b = Document.getElementById("location");
+    if (a.getAttribute("checked") == "true") {
+        b.setAttribute("disabled", "false");
+    }
+</script>
