@@ -32,6 +32,10 @@
         <h4>Exterior shot</h4>
         <img
             src="https://github.com/H2SO4Hasegawa/SoftwareFYP/blob/master/Annotated%20Black%20Hawk%20Down%20Scene.png?raw=true">
+
+        <h4>Question 2 Help:</h4>
+        <p>Medieval</p>
+
     </full-instructions>
     <div>
         <p>1. Please enter the timestamp below.</p>
@@ -39,7 +43,7 @@
 
     </div>
     <div>
-        <p>2. On a scale of Medival (0) to Futuristic (3000), when would you place this scene in?</p>
+        <p>2. On a scale of Medieval (0) to Futuristic (3000), when would you place this scene in?</p>
         <crowd-slider name="whatAge" min="0" max="3000" step="100" pin="true" required></crowd-slider>
     </div>
 
@@ -83,7 +87,7 @@
 
     <div>
         <p>6. If the setting is not listed above, please put in a setting below</p>
-        <crowd-input id="location" name="location" label="Please enter a location here: eg: Airport" disabled="true">
+        <crowd-input id="location" name="location" label="Please enter a location here: eg: Airport">
         </crowd-input>
     </div>
 
@@ -92,8 +96,10 @@
         <crowd-input id="location" name="location" label="Please enter a country here: eg: USA">
         </crowd-input>
     </div>
-
-
+    <div>
+        <crowd-input id="url" name="url" type="hidden" value="${video_url}">
+        </crowd-input>
+    </div>
 
 
 
@@ -101,10 +107,3 @@
 
 
 </crowd-form>
-<script>
-    var a = Document.getElementById("none");
-    var b = Document.getElementById("location");
-    if (a.getAttribute("checked") == "true") {
-        b.setAttribute("disabled", "false");
-    }
-</script>
